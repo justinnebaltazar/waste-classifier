@@ -7,7 +7,7 @@ function App() {
   const [classification, setClassification] = useState(null)
   const [isClassifying, setIsClassifying] = useState(false)
 
-  const API_URL = import.meta.env.VITE_API_URL
+  const API_URL = `${import.meta.env.VITE_API_URL}/api/classify`;
 
   const handleImageSelect = async (event) => {
     const file = event.target.files[0]
@@ -54,7 +54,7 @@ function App() {
     formData.append("image", selectedImage)
 
     try {
-      const response = await fetch(API_URL, {
+      const response = await fetch(`${API_URL}`, {
         method: "POST",
         body: formData,
       })
